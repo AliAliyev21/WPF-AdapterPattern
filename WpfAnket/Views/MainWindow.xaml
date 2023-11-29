@@ -1,0 +1,67 @@
+﻿<Window x:Class="WpfAnket.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAnket"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="630" Width="715" MaxHeight="630" MaxWidth="715" MinHeight="630" MinWidth="715" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="4.5*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="DarkSlateBlue">
+            <Label Width="145" FontSize="40" FontWeight="Bold" Content="ANKET" HorizontalAlignment="Center" Foreground="White"></Label>
+        </Grid>
+        <Grid Grid.Row="1" Background="LightGray">
+            <Canvas>
+                <Label Content="Name :" FontSize="40" FontWeight="Bold" Margin="20,10,0,0" Canvas.Left="56"></Label>
+                <TextBox FontSize="33" FontWeight="Medium" Text="{Binding Name}" Canvas.Left="230" Height="50" Width="240" Canvas.Top="20"></TextBox>
+                <Label Content="Surname :" FontSize="40" FontWeight="Bold" Margin="20,10,0,0" Canvas.Top="80"></Label>
+                <TextBox FontSize="33" FontWeight="Medium" Text="{Binding Surname}" Canvas.Left="230" Height="50" Width="240" Canvas.Top="100"></TextBox>
+                <Label Content="Age :" FontSize="40" FontWeight="Bold" Margin="20,10,0,0" Canvas.Top="160" Canvas.Left="90"></Label>
+                <TextBox FontSize="33" FontWeight="Medium" Text="{Binding Age}" Canvas.Left="230" Height="50" Width="240" Canvas.Top="180"></TextBox>
+                <Label Content="SeriaNo :" FontSize="40" FontWeight="Bold" Margin="20,10,0,0" Canvas.Top="240" Canvas.Left="15"></Label>
+                <TextBox FontSize="33" FontWeight="Medium" Text="{Binding SeriaNo}" Canvas.Left="230" Height="50" Width="240" Canvas.Top="260"></TextBox>
+                <Button Command="{Binding SaveCommand}" Width="200" Height="80" Canvas.Left="10" Canvas.Top="380" Content="SAVE" FontSize="40" FontWeight="Bold" Background="DeepSkyBlue" Foreground="White"></Button>
+                <Button Command="{Binding ClearCommand}" Width="200" Height="80" Canvas.Left="250" Canvas.Top="380" Content="CLEAR" FontSize="40" FontWeight="Bold" Background="DeepSkyBlue" Foreground="Red"></Button>
+                <Button Command="{Binding LoadCommand}" Width="200" Height="80" Canvas.Left="490" Canvas.Top="380" Content="LOAD" FontSize="40" FontWeight="Bold" Background="DeepSkyBlue" Foreground="White"></Button>
+                <ToggleButton Width="190" Height="73" Canvas.Left="500" Canvas.Top="50" Content="JSON" FontSize="28" FontWeight="Bold" Cursor="Hand"
+                IsChecked="{Binding IsJsonChecked}"
+                Command="{Binding JsonCommand}">
+                    <ToggleButton.Template>
+                        <ControlTemplate TargetType="ToggleButton">
+                            <Border x:Name="Border" Background="White" CornerRadius="25" BorderBrush="Gray" BorderThickness="3">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="Border" Property="Background" Value="DeepSkyBlue"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </ToggleButton.Template>
+                </ToggleButton>
+                <ToggleButton Width="190" Height="73" Canvas.Left="500" Canvas.Top="200" Content="XML" FontSize="28" FontWeight="Bold" Cursor="Hand"
+                IsChecked="{Binding IsXmlChecked}"
+                Command="{Binding XmlCommand}">
+                    <ToggleButton.Template>
+                        <ControlTemplate TargetType="ToggleButton">
+                            <Border x:Name="Border" Background="White" CornerRadius="25" BorderBrush="Gray" BorderThickness="3">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="Border" Property="Background" Value="DeepSkyBlue"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </ToggleButton.Template>
+                </ToggleButton>
+            </Canvas>
+        </Grid>
+    </Grid>
+</Window>
